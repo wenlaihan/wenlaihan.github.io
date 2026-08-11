@@ -1,0 +1,458 @@
+/* ==========================================================================
+   Wenlai Han — personal research site
+   Palette derived from wendlandtlab.com (white ground, cool-gray ink,
+   blue accent). Dark theme keeps the same hues with inverted lightness.
+   ========================================================================== */
+
+:root {
+  color-scheme: light dark;
+
+  --bg: #ffffff;
+  --surface: #f3f4f6;
+  --text: #111827;
+  --muted: #4b5563;
+  --accent: #1d4ed8;
+  --accent-strong: #1e40af;
+  --hairline: #e5e7eb;
+
+  --font-sans: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.5rem;
+  --s6: 2rem;
+  --s7: 3rem;
+  --s8: 4rem;
+  --s9: 6rem;
+
+  --measure: 42rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111827;
+    --surface: #1f2937;
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+    --accent: #93c5fd;
+    --accent-strong: #bfdbfe;
+    --hairline: #374151;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Base
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  padding: var(--s7) var(--s5) var(--s8);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+@media (min-width: 40em) {
+  body {
+    padding: var(--s9) var(--s6);
+  }
+}
+
+header,
+main,
+footer {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+p {
+  margin: 0 0 var(--s4);
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* --------------------------------------------------------------------------
+   Links
+   -------------------------------------------------------------------------- */
+
+/* Link colour alone sits below 3:1 against body text, so the underline is the
+   accessible affordance, not decoration — it has to stay clearly visible. */
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+  text-decoration-color: var(--accent);
+  text-decoration-color: color-mix(in srgb, var(--accent) 70%, transparent);
+  transition: color 0.12s ease, text-decoration-color 0.12s ease;
+}
+
+a:hover {
+  color: var(--accent-strong);
+  text-decoration-color: currentColor;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Focused only via the skip link, never in the tab order. */
+main[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* Standalone link rows read as controls, so they carry no resting underline. */
+.linkrow a,
+.skip-link {
+  text-decoration: none;
+}
+
+.linkrow a:hover,
+.linkrow a:focus-visible {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: var(--s2);
+  padding: var(--s2) var(--s3);
+  background: var(--surface);
+  color: var(--accent);
+  border: 1px solid var(--hairline);
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.15);
+}
+
+.skip-link:focus {
+  left: var(--s2);
+}
+
+/* --------------------------------------------------------------------------
+   Header / hero
+   -------------------------------------------------------------------------- */
+
+.hero {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+  gap: var(--s5);
+  margin-bottom: var(--s6);
+}
+
+@media (min-width: 40em) {
+  .hero {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--s7);
+  }
+}
+
+.hero-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+h1 {
+  margin: 0 0 var(--s2);
+  font-size: clamp(2rem, 5vw + 1rem, 2.75rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.headshot {
+  flex: 0 0 auto;
+  margin: 0;
+  width: 7rem;
+  height: 7rem;
+}
+
+@media (min-width: 40em) {
+  .headshot {
+    width: 9rem;
+    height: 9rem;
+  }
+}
+
+.headshot-mark,
+.headshot img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+}
+
+.headshot-mark {
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  color: var(--accent);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  user-select: none;
+}
+
+.headshot img {
+  display: block;
+  object-fit: cover;
+}
+
+/* --------------------------------------------------------------------------
+   Link rows (contact + section nav)
+   -------------------------------------------------------------------------- */
+
+.linkrow {
+  display: flex;
+  flex-wrap: wrap;
+  /* Row gap clears the 4px focus ring when the row wraps. */
+  gap: var(--s2) var(--s4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.9375rem;
+}
+
+.linkrow a {
+  display: inline-block;
+  padding: var(--s1) 0;
+}
+
+.contact {
+  margin-top: var(--s5);
+}
+
+.section-nav {
+  margin-top: var(--s4);
+  padding-top: var(--s4);
+  border-top: 1px solid var(--hairline);
+}
+
+/* --------------------------------------------------------------------------
+   Sections
+   -------------------------------------------------------------------------- */
+
+section,
+main[tabindex="-1"] {
+  scroll-margin-top: var(--s5);
+}
+
+main > section:first-of-type {
+  margin-top: var(--s7);
+}
+
+section + section {
+  margin-top: var(--s6);
+  padding-top: var(--s6);
+  border-top: 1px solid var(--hairline);
+}
+
+@media (min-width: 40em) {
+  main > section:first-of-type {
+    margin-top: var(--s8);
+  }
+
+  section + section {
+    margin-top: var(--s7);
+    padding-top: var(--s7);
+  }
+}
+
+h2 {
+  margin: 0 0 var(--s5);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h3 {
+  margin: 0 0 var(--s2);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.entries {
+  display: grid;
+  gap: var(--s6);
+}
+
+.note {
+  margin: var(--s6) 0 0;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+/* --------------------------------------------------------------------------
+   Publications
+   -------------------------------------------------------------------------- */
+
+.pubs {
+  display: grid;
+  gap: var(--s6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pub-title {
+  margin: 0 0 var(--s1);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  /* Keeps a single-line title's click target above the 24px minimum. */
+  line-height: 1.45;
+}
+
+.pub-authors,
+.pub-venue {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.pub-authors strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.footnote {
+  margin: var(--s6) 0 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   Compact lists (software, teaching, awards)
+   -------------------------------------------------------------------------- */
+
+.stack {
+  display: grid;
+  gap: var(--s3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stack strong {
+  font-weight: 600;
+}
+
+.meta {
+  margin: var(--s6) 0 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+/* Runs of items that read as one line but must stay a list, so screen readers
+   announce the item boundaries the middots only imply visually. */
+.inline-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s2);
+  padding: 0;
+  list-style: none;
+}
+
+.inline-list li + li::before {
+  content: "·\00a0";
+}
+
+/* Long entries read better stacked than wrapped into a ragged row. */
+.awards {
+  gap: var(--s2);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+
+footer {
+  margin-top: var(--s6);
+  padding-top: var(--s5);
+  border-top: 1px solid var(--hairline);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+@media (min-width: 40em) {
+  footer {
+    margin-top: var(--s7);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Error page
+   -------------------------------------------------------------------------- */
+
+.centered {
+  display: grid;
+  gap: var(--s4);
+  justify-items: start;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+    scroll-behavior: auto !important;
+  }
+}

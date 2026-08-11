@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wenlai Han — Organic Chemistry PhD Candidate, MIT</title>
+<meta name="description" content="Wenlai Han is a PhD candidate in organic chemistry at MIT (Wendlandt Lab), working on reaction-network control, skeletal remodeling of C(sp3)-rich molecules under dynamic kinetic control, and differentiable kinetic modeling.">
+<link rel="canonical" href="https://wenlaihan.github.io/">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111827">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Wenlai Han — Organic Chemistry PhD Candidate, MIT">
+<meta property="og:description" content="PhD candidate in organic chemistry at MIT (Wendlandt Lab): reaction-network control, skeletal remodeling under dynamic kinetic control, and differentiable kinetic modeling.">
+<meta property="og:url" content="https://wenlaihan.github.io/">
+<meta property="og:site_name" content="Wenlai Han">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Wenlai Han",
+  "url": "https://wenlaihan.github.io/",
+  "email": "hanw@mit.edu",
+  "jobTitle": "PhD Candidate in Organic Chemistry",
+  "affiliation": {
+    "@type": "CollegeOrUniversity",
+    "name": "Massachusetts Institute of Technology",
+    "url": "https://www.mit.edu/"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Carleton College",
+    "url": "https://www.carleton.edu/"
+  },
+  "knowsAbout": [
+    "organic chemistry",
+    "reaction networks",
+    "photocatalysis",
+    "hydrogen atom transfer",
+    "chemical kinetics",
+    "metal-ligand cooperativity"
+  ],
+  "sameAs": [
+    "https://orcid.org/0000-0001-8648-2300",
+    "https://github.com/wenlaihan",
+    "https://www.linkedin.com/in/wenlai-han/"
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <div class="hero">
+    <div class="hero-text">
+      <h1>Wenlai Han</h1>
+      <p class="tagline">
+        PhD Candidate in Organic Chemistry<br>
+        <a href="https://wendlandtlab.mit.edu/">Wendlandt Lab</a>, Massachusetts Institute of Technology<br>
+        XtalPi AI for Science Fellow
+      </p>
+    </div>
+    <figure class="headshot" aria-hidden="true">
+      <div class="headshot-mark">WH</div>
+    </figure>
+  </div>
+</header>
+
+<!-- main opens at the bio so the introduction and contact links are content,
+     not banner: a reader who uses the skip link still lands on all of it. -->
+<main id="main" tabindex="-1">
+
+  <p>
+    I study how selectivity arises in reversible reaction networks. Using dynamic radical
+    chemistry, I remodel the skeletons and peripheries of saturated,
+    C(sp<sup>3</sup>)-rich molecules — and I build differentiable kinetic models so that
+    the behavior of those networks becomes something we can measure and predict rather
+    than only rationalize. Before MIT, I studied chemistry and computer science at
+    Carleton College.
+  </p>
+
+  <!-- role="list" is redundant per spec but restores the list semantics that
+       WebKit drops from any list styled with list-style: none. -->
+  <ul class="linkrow contact" role="list">
+    <li><a href="mailto:hanw@mit.edu">Email</a></li>
+    <li><a href="assets/cv.pdf">CV <span class="visually-hidden">(PDF)</span></a></li>
+    <li><a href="https://orcid.org/0000-0001-8648-2300">ORCID</a></li>
+    <li><a href="https://github.com/wenlaihan">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/wenlai-han/">LinkedIn</a></li>
+  </ul>
+
+  <nav class="linkrow section-nav" aria-label="Sections">
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#software">Software</a>
+    <a href="#teaching">Teaching &amp; Awards</a>
+  </nav>
+
+  <section id="research">
+    <h2>Research</h2>
+    <div class="entries">
+
+      <article>
+        <h3>Reaction-network control and pathway differentiation</h3>
+        <p>
+          Selectivity is conventionally traced to a single rate-determining step. In a
+          densely connected, reversible network it can instead emerge from how many rate
+          constants relate to one another, so that a shared intermediate is directed down
+          one pathway rather than another by modest changes in catalyst or conditions. I am
+          interested in what makes such branch points controllable, and in the
+          physical-organic factors that predict which way they tip.
+        </p>
+      </article>
+
+      <article>
+        <h3>Skeletal and peripheral remodeling under dynamic kinetic control</h3>
+        <p>
+          Direct C–H functionalization of saturated medium-sized rings is hard to control,
+          because so many positions are comparably reactive. In our
+          <a href="#publications">published work on seven-membered rings</a>, reversible
+          hydrogen atom abstraction and donation sample radicals at multiple ring positions,
+          and selectivity is settled downstream instead: a radical addition and β-scission
+          sequence migrates the ketone across the ring, converting 1,1-disubstituted
+          acylcycloheptanes into 1,4-disubstituted products under mild photocatalytic
+          conditions. Committing late rather than early is what makes a conformationally
+          mobile substrate tractable.
+        </p>
+      </article>
+
+      <article>
+        <h3>Differentiable kinetic modeling</h3>
+        <p>
+          When selectivity is set by many coupled rate constants rather than one barrier,
+          qualitative reasoning runs out. I build kinetic models alongside the bench work:
+          networks specified symbolically in <code>Catalyst.jl</code>, integrated with the
+          stiff solvers of <code>DifferentialEquations.jl</code>, and regressed against
+          time-resolved data by global optimization before refinement with adjoint
+          sensitivities (<code>SciMLSensitivity.jl</code>). What draws me is the inverse
+          problem — recovering a network from its timecourses, rather than only simulating
+          one forward.
+        </p>
+      </article>
+
+      <article>
+        <h3>Metal–ligand cooperativity</h3>
+        <p>
+          As an undergraduate with Prof. Matt Whited at Carleton College, I worked on
+          cobalt–silicon complexes in which the Co=Si bond offers two chemically distinct
+          sites for substrate activation. Their orthogonal binding preferences let a cobalt
+          silylene catalyze nitrene transfer from an alkyl azide to carbon monoxide while
+          avoiding the CO poisoning that would otherwise stall turnover at a single site. A
+          later study on the same platform found that bulky <i>tert</i>-butyl groups on the
+          phosphine donors hinder reactivity at both cobalt and silicon, making the
+          catalysis markedly less effective than with smaller isopropyl and cyclohexyl
+          analogues.
+        </p>
+      </article>
+
+    </div>
+    <p class="note">Current work extends these ideas to new scaffolds and reaction classes.</p>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    <ul class="pubs" role="list">
+
+      <li>
+        <p class="pub-title">
+          <a href="https://doi.org/10.1021/acs.organomet.5c00430">Synthesis and Cooperative Reactivity of Sterically Encumbered Silyl and Silylene (<sup><i>t</i></sup>BuP<sub>2</sub>Si)Co Complexes</a>
+        </p>
+        <p class="pub-authors">
+          Whited, M. T.; Pearson, C. E.; Stewart, M. A.; Lee-Zacheis, C.; Khan, A. E.;
+          <strong>Han, W.</strong>; Giuliani, K.; Kohen, D.
+        </p>
+        <p class="pub-venue"><i>Organometallics</i> 2026, 45, 297–305.</p>
+      </li>
+
+      <li>
+        <p class="pub-title">
+          <a href="https://doi.org/10.1021/jacs.5c10470">Migrating Group Strategy for Remote Functionalization of Seven-Membered Rings</a>
+        </p>
+        <p class="pub-authors">
+          <strong>Han, W.</strong><sup aria-hidden="true">†</sup><span
+          class="visually-hidden">(equal contribution)</span>; Hwang, T.<sup
+          aria-hidden="true">†</sup><span class="visually-hidden">(equal
+          contribution)</span>; Lian, C.; Kolb, S.; Yamane, M.; Palani, V.;
+          Wendlandt, A. E.
+        </p>
+        <p class="pub-venue"><i>J. Am. Chem. Soc.</i> 2025, 147, 32077–32084.</p>
+      </li>
+
+      <li>
+        <p class="pub-title">
+          <a href="https://doi.org/10.1002/anie.202205748">Cobalt Silylenes as Platforms for Catalytic Nitrene-Group Transfer by Metal–Ligand Cooperation</a>
+        </p>
+        <p class="pub-authors">
+          Whited, M. T.; <strong>Han, W.</strong>; Jin-Lee, H. J.; DiNardo, Z.; Watson, E.;
+          Zhang, J.; Kohen, D.
+        </p>
+        <p class="pub-venue"><i>Angew. Chem. Int. Ed.</i> 2022, 61, e202205748 · Hot Paper.</p>
+      </li>
+
+      <li>
+        <p class="pub-title">
+          <a href="https://doi.org/10.1016/j.lwt.2018.06.003">Novel Application of CO<sub>2</sub>-Assisted High Pressure Processing in Cucumber Juice and Apple Juice</a>
+        </p>
+        <p class="pub-authors">
+          Zhao, L.; Qin, X.; <strong>Han, W.</strong>; Wu, X.; Wang, Y.; Hu, X.; Ling, J.;
+          Liao, X.
+        </p>
+        <p class="pub-venue"><i>LWT</i> 2018, 96, 491–498.</p>
+      </li>
+
+    </ul>
+    <p class="footnote"><sup>†</sup> These authors contributed equally.</p>
+  </section>
+
+  <section id="software">
+    <h2>Software</h2>
+    <ul class="stack" role="list">
+      <li><strong>PocketForge</strong> — a full-stack design–make–test–analyze pipeline for drug design, with validated data APIs and explainable selectivity scoring.</li>
+      <li><strong><a href="https://devpost.com/software/know-de">Know-de</a></strong> — an agentic LLM tutor that leads students through Socratic questioning instead of direct explanation.</li>
+      <li><strong>Geothermal Data Web App</strong> — an interactive dashboard built for the Carleton College geology department.</li>
+      <li><strong>PM<sub>2.5</sub> Sensor Pipeline</strong> — data processing and analysis for low-cost passive particulate sensors.</li>
+      <li><strong>Natural Disaster Web App</strong> — an interactive interface for global natural-disaster data.</li>
+    </ul>
+    <ul class="meta inline-list" role="list">
+      <li>Python</li>
+      <li>Julia</li>
+      <li>JavaScript</li>
+      <li>C</li>
+      <li>SQL</li>
+      <li>Julia SciML ecosystem</li>
+    </ul>
+  </section>
+
+  <section id="teaching">
+    <h2>Teaching &amp; Awards</h2>
+    <p>
+      Teaching facilitator for 5.12 Organic Chemistry I at MIT (Fall 2023, Spring 2024;
+      average student rating 6.5/7), and previously a laboratory teaching assistant in
+      organic and inorganic chemistry at Carleton College.
+    </p>
+    <ul class="meta stack awards" role="list">
+      <li>ACS Division of Organic Chemistry Travel Award</li>
+      <li>MIT Department of Chemistry Mentorship Spotlight Award</li>
+      <li>Jerry Mohrig Prize in Chemistry</li>
+      <li>ACS Division of Inorganic Chemistry Symposium Poster Prize</li>
+      <li>U.S. National Chemistry Olympiad Gold Award (China Division)</li>
+    </ul>
+  </section>
+
+</main>
+
+<footer>
+  <p>© 2026 Wenlai Han · <a href="mailto:hanw@mit.edu">hanw@mit.edu</a> · Cambridge, Massachusetts</p>
+</footer>
+
+</body>
+</html>

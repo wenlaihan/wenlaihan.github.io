@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="W">
+  <style>
+    .plate { fill: #1D4ED8 }
+    .mark  { stroke: #FFFFFF }
+    @media (prefers-color-scheme: dark) {
+      .plate { fill: #93C5FD }
+      .mark  { stroke: #111827 }
+    }
+  </style>
+  <rect class="plate" width="64" height="64" rx="14"/>
+  <!-- The W is drawn rather than set in type so it renders identically
+       everywhere, including contexts with no system fonts. -->
+  <path class="mark" d="M14 19 L23 45 L32 29 L41 45 L50 19"
+        fill="none" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
