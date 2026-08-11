@@ -309,9 +309,10 @@ h1 {
 @media (min-width: 70em) {
   .section-nav {
     position: fixed;
-    top: 50%;
+    /* Matches body's top padding, so the rail opens level with the h1 and then
+       stays put as the page scrolls. */
+    top: var(--s9);
     left: calc(50% - 32rem);
-    transform: translateY(-50%);
     flex-direction: column;
     align-items: flex-start;
     gap: var(--s3);
