@@ -96,6 +96,25 @@ code {
   font-size: 0.875em;
 }
 
+/* Raised and lowered figures are offset from the baseline rather than aligned
+   by the browser default, which would grow the line box and leave uneven gaps
+   around lines carrying C(sp3), CO2, or a dagger. */
+sup,
+sub {
+  font-size: 0.75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
 /* --------------------------------------------------------------------------
    Links
    -------------------------------------------------------------------------- */
