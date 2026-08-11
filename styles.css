@@ -402,81 +402,21 @@ h2 {
 .research li {
   display: flex;
   align-items: flex-start;
-  gap: var(--s4);
+  gap: var(--s3);
 }
 
+/* Opens the bullet at roughly cap height, so the text hangs beside it. */
 .motif {
   flex: 0 0 auto;
-  width: 2.75rem;
-  height: 1.96rem;
-  margin-top: 0.3rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-top: 0.24rem;
   color: var(--accent);
-  overflow: visible;
-}
-
-@media (min-width: 40em) {
-  .motif {
-    width: 3.5rem;
-    height: 2.5rem;
-  }
 }
 
 /* --------------------------------------------------------------------------
    Publications
    -------------------------------------------------------------------------- */
-
-.timeline {
-  position: relative;
-  height: 2.25rem;
-  margin: calc(var(--s5) * -1) 0 var(--s6);
-  padding: 0;
-  list-style: none;
-  border-bottom: 1px solid var(--hairline);
-}
-
-.timeline li {
-  position: absolute;
-  bottom: 0;
-  left: var(--at);
-  transform: translateX(-50%);
-  font-size: 0.75rem;
-  color: var(--muted);
-}
-
-.timeline li:first-child {
-  transform: translateX(0);
-}
-
-.timeline li:last-child {
-  transform: translateX(-100%);
-}
-
-.timeline span {
-  display: block;
-  padding-bottom: 0.4rem;
-}
-
-.timeline li::after {
-  content: "";
-  position: absolute;
-  bottom: -3.5px;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  margin-left: -3px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-
-.timeline li:first-child::after {
-  left: 0.6em;
-}
-
-.timeline li:last-child::after {
-  left: auto;
-  right: 0.6em;
-  margin-left: 0;
-}
 
 .pubs {
   display: grid;
