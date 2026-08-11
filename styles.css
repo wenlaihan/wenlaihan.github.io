@@ -254,8 +254,19 @@ h1 {
 }
 
 .linkrow a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
   padding: var(--s1) 0;
+}
+
+/* Marks sit beside their label rather than replacing it, so the row stays
+   readable when an icon is unfamiliar. */
+.icon {
+  width: 1.05em;
+  height: 1.05em;
+  flex: 0 0 auto;
+  fill: currentColor;
 }
 
 .contact {
