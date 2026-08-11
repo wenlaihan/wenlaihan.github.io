@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Wenlai Han — personal research site
+   Wenlai Han, personal research site
    Palette derived from wendlandtlab.com (white ground, cool-gray ink,
    blue accent). Dark theme keeps the same hues with inverted lightness.
    ========================================================================== */
@@ -101,7 +101,7 @@ code {
    -------------------------------------------------------------------------- */
 
 /* Link colour alone sits below 3:1 against body text, so the underline is the
-   accessible affordance, not decoration — it has to stay clearly visible. */
+   accessible affordance, not decoration, so it has to stay clearly visible. */
 a {
   color: var(--accent);
   text-decoration: underline;
@@ -210,27 +210,13 @@ h1 {
   }
 }
 
-.headshot-mark,
 .headshot img {
+  display: block;
   width: 100%;
   height: 100%;
   border-radius: 0.75rem;
-}
-
-.headshot-mark {
-  display: grid;
-  place-items: center;
-  background: var(--surface);
-  color: var(--accent);
-  font-size: 2rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  user-select: none;
-}
-
-.headshot img {
-  display: block;
   object-fit: cover;
+  background: var(--surface);
 }
 
 /* --------------------------------------------------------------------------
@@ -301,18 +287,6 @@ h2 {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-}
-
-h3 {
-  margin: 0 0 var(--s2);
-  font-size: 1.0625rem;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.entries {
-  display: grid;
-  gap: var(--s6);
 }
 
 .note {
@@ -432,6 +406,53 @@ footer {
 }
 
 /* --------------------------------------------------------------------------
+   Back to top
+   -------------------------------------------------------------------------- */
+
+.to-top {
+  position: fixed;
+  right: var(--s5);
+  bottom: var(--s5);
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--accent);
+  text-decoration: none;
+  box-shadow: 0 1px 4px rgb(0 0 0 / 0.12);
+}
+
+.to-top:hover {
+  color: var(--accent-strong);
+  border-color: var(--accent);
+}
+
+/* Fades in past the first screen where scroll-driven animation is supported.
+   Everywhere else the control is simply always present, which is harmless. */
+@supports (animation-timeline: scroll()) {
+  .to-top {
+    animation: to-top-reveal linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 240px 480px;
+  }
+
+  @keyframes to-top-reveal {
+    from {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    to {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+/* --------------------------------------------------------------------------
    Error page
    -------------------------------------------------------------------------- */
 
@@ -454,5 +475,12 @@ footer {
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
     scroll-behavior: auto !important;
+  }
+
+  /* The blanket rule above would strand the scroll-driven reveal, so pin the
+     control visible instead. */
+  .to-top {
+    opacity: 1;
+    visibility: visible;
   }
 }

@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Wenlai Han — Organic Chemistry PhD Candidate, MIT</title>
+<title>Wenlai Han · Organic Chemistry PhD Candidate, MIT</title>
 <meta name="description" content="Wenlai Han is a PhD candidate in organic chemistry at MIT (Wendlandt Lab), working on reaction-network control, skeletal remodeling of C(sp3)-rich molecules under dynamic kinetic control, and differentiable kinetic modeling.">
 <link rel="canonical" href="https://wenlaihan.github.io/">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111827">
 <meta property="og:type" content="profile">
-<meta property="og:title" content="Wenlai Han — Organic Chemistry PhD Candidate, MIT">
+<meta property="og:title" content="Wenlai Han · Organic Chemistry PhD Candidate, MIT">
 <meta property="og:description" content="PhD candidate in organic chemistry at MIT (Wendlandt Lab): reaction-network control, skeletal remodeling under dynamic kinetic control, and differentiable kinetic modeling.">
 <meta property="og:url" content="https://wenlaihan.github.io/">
 <meta property="og:site_name" content="Wenlai Han">
@@ -57,7 +57,7 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header>
+<header id="top">
   <div class="hero">
     <div class="hero-text">
       <h1>Wenlai Han</h1>
@@ -67,9 +67,11 @@
         XtalPi AI for Science Fellow
       </p>
     </div>
-    <figure class="headshot" aria-hidden="true">
-      <div class="headshot-mark">WH</div>
-    </figure>
+    <!-- alt="" because the name is already the h1; a description here would
+         only make screen readers announce it twice. -->
+    <div class="headshot">
+      <img src="assets/photo.jpg" alt="" width="640" height="640" decoding="async">
+    </div>
   </div>
 </header>
 
@@ -80,7 +82,7 @@
   <p>
     I study how selectivity arises in reversible reaction networks. Using dynamic radical
     chemistry, I remodel the skeletons and peripheries of saturated,
-    C(sp<sup>3</sup>)-rich molecules — and I build differentiable kinetic models so that
+    C(sp<sup>3</sup>)-rich molecules, and I build differentiable kinetic models so that
     the behavior of those networks becomes something we can measure and predict rather
     than only rationalize. Before MIT, I studied chemistry and computer science at
     Carleton College.
@@ -105,65 +107,32 @@
 
   <section id="research">
     <h2>Research</h2>
-    <div class="entries">
-
-      <article>
-        <h3>Reaction-network control and pathway differentiation</h3>
-        <p>
-          Selectivity is conventionally traced to a single rate-determining step. In a
-          densely connected, reversible network it can instead emerge from how many rate
-          constants relate to one another, so that a shared intermediate is directed down
-          one pathway rather than another by modest changes in catalyst or conditions. I am
-          interested in what makes such branch points controllable, and in the
-          physical-organic factors that predict which way they tip.
-        </p>
-      </article>
-
-      <article>
-        <h3>Skeletal and peripheral remodeling under dynamic kinetic control</h3>
-        <p>
-          Direct C–H functionalization of saturated medium-sized rings is hard to control,
-          because so many positions are comparably reactive. In our
-          <a href="#publications">published work on seven-membered rings</a>, reversible
-          hydrogen atom abstraction and donation sample radicals at multiple ring positions,
-          and selectivity is settled downstream instead: a radical addition and β-scission
-          sequence migrates the ketone across the ring, converting 1,1-disubstituted
-          acylcycloheptanes into 1,4-disubstituted products under mild photocatalytic
-          conditions. Committing late rather than early is what makes a conformationally
-          mobile substrate tractable.
-        </p>
-      </article>
-
-      <article>
-        <h3>Differentiable kinetic modeling</h3>
-        <p>
-          When selectivity is set by many coupled rate constants rather than one barrier,
-          qualitative reasoning runs out. I build kinetic models alongside the bench work:
-          networks specified symbolically in <code>Catalyst.jl</code>, integrated with the
-          stiff solvers of <code>DifferentialEquations.jl</code>, and regressed against
-          time-resolved data by global optimization before refinement with adjoint
-          sensitivities (<code>SciMLSensitivity.jl</code>). What draws me is the inverse
-          problem — recovering a network from its timecourses, rather than only simulating
-          one forward.
-        </p>
-      </article>
-
-      <article>
-        <h3>Metal–ligand cooperativity</h3>
-        <p>
-          As an undergraduate with Prof. Matt Whited at Carleton College, I worked on
-          cobalt–silicon complexes in which the Co=Si bond offers two chemically distinct
-          sites for substrate activation. Their orthogonal binding preferences let a cobalt
-          silylene catalyze nitrene transfer from an alkyl azide to carbon monoxide while
-          avoiding the CO poisoning that would otherwise stall turnover at a single site. A
-          later study on the same platform found that bulky <i>tert</i>-butyl groups on the
-          phosphine donors hinder reactivity at both cobalt and silicon, making the
-          catalysis markedly less effective than with smaller isopropyl and cyclohexyl
-          analogues.
-        </p>
-      </article>
-
-    </div>
+    <ul class="stack" role="list">
+      <li>
+        <strong>Reaction-network control.</strong> In a densely connected, reversible
+        network, selectivity can arise from how many rate constants relate to one another
+        rather than from a single rate-determining step.
+      </li>
+      <li>
+        <strong>Skeletal and peripheral remodeling.</strong> Reversible hydrogen atom
+        transfer samples radicals at multiple ring positions while a downstream radical
+        addition and β-scission sequence sets the product,
+        <a href="#publications">migrating a ketone across seven-membered rings</a> to give
+        1,4-disubstituted products.
+      </li>
+      <li>
+        <strong>Differentiable kinetic modeling.</strong> I recover rate constants from
+        timecourse data using networks specified in <code>Catalyst.jl</code>, stiff solvers
+        from <code>DifferentialEquations.jl</code>, and adjoint sensitivities from
+        <code>SciMLSensitivity.jl</code>.
+      </li>
+      <li>
+        <strong>Metal–ligand cooperativity.</strong> In cobalt silylenes the Co=Si bond
+        offers two chemically distinct activation sites, letting cobalt and silicon divide
+        a nitrene transfer to carbon monoxide that would otherwise poison a single-site
+        catalyst.
+      </li>
+    </ul>
     <p class="note">Current work extends these ideas to new scaffolds and reaction classes.</p>
   </section>
 
@@ -176,7 +145,8 @@
           <a href="https://doi.org/10.1021/acs.organomet.5c00430">Synthesis and Cooperative Reactivity of Sterically Encumbered Silyl and Silylene (<sup><i>t</i></sup>BuP<sub>2</sub>Si)Co Complexes</a>
         </p>
         <p class="pub-authors">
-          Whited, M. T.; Pearson, C. E.; Stewart, M. A.; Lee-Zacheis, C.; Khan, A. E.;
+          Whited, M. T.<sup aria-hidden="true">*</sup><span class="visually-hidden">(corresponding
+          author)</span>; Pearson, C. E.; Stewart, M. A.; Lee-Zacheis, C.; Khan, A. E.;
           <strong>Han, W.</strong>; Giuliani, K.; Kohen, D.
         </p>
         <p class="pub-venue"><i>Organometallics</i> 2026, 45, 297–305.</p>
@@ -191,7 +161,8 @@
           class="visually-hidden">(equal contribution)</span>; Hwang, T.<sup
           aria-hidden="true">†</sup><span class="visually-hidden">(equal
           contribution)</span>; Lian, C.; Kolb, S.; Yamane, M.; Palani, V.;
-          Wendlandt, A. E.
+          Wendlandt, A. E.<sup aria-hidden="true">*</sup><span class="visually-hidden">(corresponding
+          author)</span>
         </p>
         <p class="pub-venue"><i>J. Am. Chem. Soc.</i> 2025, 147, 32077–32084.</p>
       </li>
@@ -201,7 +172,8 @@
           <a href="https://doi.org/10.1002/anie.202205748">Cobalt Silylenes as Platforms for Catalytic Nitrene-Group Transfer by Metal–Ligand Cooperation</a>
         </p>
         <p class="pub-authors">
-          Whited, M. T.; <strong>Han, W.</strong>; Jin-Lee, H. J.; DiNardo, Z.; Watson, E.;
+          Whited, M. T.<sup aria-hidden="true">*</sup><span class="visually-hidden">(corresponding
+          author)</span>; <strong>Han, W.</strong>; Jin-Lee, H. J.; DiNardo, Z.; Watson, E.;
           Zhang, J.; Kohen, D.
         </p>
         <p class="pub-venue"><i>Angew. Chem. Int. Ed.</i> 2022, 61, e202205748 · Hot Paper.</p>
@@ -213,23 +185,26 @@
         </p>
         <p class="pub-authors">
           Zhao, L.; Qin, X.; <strong>Han, W.</strong>; Wu, X.; Wang, Y.; Hu, X.; Ling, J.;
-          Liao, X.
+          Liao, X.<sup aria-hidden="true">*</sup><span class="visually-hidden">(corresponding
+          author)</span>
         </p>
         <p class="pub-venue"><i>LWT</i> 2018, 96, 491–498.</p>
       </li>
 
     </ul>
-    <p class="footnote"><sup>†</sup> These authors contributed equally.</p>
+    <p class="footnote">
+      <sup>*</sup> Corresponding author. <sup>†</sup> These authors contributed equally.
+    </p>
   </section>
 
   <section id="software">
     <h2>Software</h2>
     <ul class="stack" role="list">
-      <li><strong>PocketForge</strong> — a full-stack design–make–test–analyze pipeline for drug design, with validated data APIs and explainable selectivity scoring.</li>
-      <li><strong><a href="https://devpost.com/software/know-de">Know-de</a></strong> — an agentic LLM tutor that leads students through Socratic questioning instead of direct explanation.</li>
-      <li><strong>Geothermal Data Web App</strong> — an interactive dashboard built for the Carleton College geology department.</li>
-      <li><strong>PM<sub>2.5</sub> Sensor Pipeline</strong> — data processing and analysis for low-cost passive particulate sensors.</li>
-      <li><strong>Natural Disaster Web App</strong> — an interactive interface for global natural-disaster data.</li>
+      <li><strong>PocketForge</strong>: a full-stack design–make–test–analyze pipeline for drug design, with validated data APIs and explainable selectivity scoring.</li>
+      <li><strong><a href="https://devpost.com/software/know-de">Know-de</a></strong>: an agentic LLM tutor that leads students through Socratic questioning instead of direct explanation.</li>
+      <li><strong>Geothermal Data Web App</strong>: an interactive dashboard built for the Carleton College geology department.</li>
+      <li><strong>PM<sub>2.5</sub> Sensor Pipeline</strong>: data processing and analysis for low-cost passive particulate sensors.</li>
+      <li><strong>Natural Disaster Web App</strong>: an interactive interface for global natural-disaster data.</li>
     </ul>
     <ul class="meta inline-list" role="list">
       <li>Python</li>
@@ -246,7 +221,8 @@
     <p>
       Teaching facilitator for 5.12 Organic Chemistry I at MIT (Fall 2023, Spring 2024;
       average student rating 6.5/7), and previously a laboratory teaching assistant in
-      organic and inorganic chemistry at Carleton College.
+      organic and inorganic chemistry at Carleton College. I am a certified mentor in the
+      MIT Department of Chemistry and the Wendlandt Lab.
     </p>
     <ul class="meta stack awards" role="list">
       <li>ACS Division of Organic Chemistry Travel Award</li>
@@ -262,6 +238,13 @@
 <footer>
   <p>© 2026 Wenlai Han · <a href="mailto:hanw@mit.edu">hanw@mit.edu</a> · Cambridge, Massachusetts</p>
 </footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
+    <path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</a>
 
 </body>
 </html>
