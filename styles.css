@@ -347,6 +347,26 @@ h2 {
   font-weight: 600;
 }
 
+/* Graphical abstracts are black line art drawn for print, so they keep a paper
+   plate in both themes; on dark backgrounds it is dimmed slightly so it does
+   not glare beside the surrounding text. */
+.toc {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: var(--s3);
+  padding: var(--s3);
+  background: #ffffff;
+  border: 1px solid var(--hairline);
+  border-radius: 6px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .toc {
+    filter: brightness(0.88);
+  }
+}
+
 .footnote {
   margin: var(--s6) 0 0;
   font-size: 0.875rem;
