@@ -303,6 +303,36 @@ h1 {
   opacity: 1;
 }
 
+/* Set by the scrollspy on the section currently being read. */
+.section-nav a[aria-current] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.section-nav a[aria-current]::before {
+  background: var(--accent);
+  opacity: 1;
+}
+
+/* Fallback when the script does not run: mark the link that was last followed.
+   Suppressed once the scrollspy is live, or a stale :target would stay lit
+   alongside the current section. */
+html:not(.js) body:has(#research:target) .section-nav a[href="#research"],
+html:not(.js) body:has(#publications:target) .section-nav a[href="#publications"],
+html:not(.js) body:has(#software:target) .section-nav a[href="#software"],
+html:not(.js) body:has(#teaching:target) .section-nav a[href="#teaching"] {
+  color: var(--text);
+  font-weight: 600;
+}
+
+html:not(.js) body:has(#research:target) .section-nav a[href="#research"]::before,
+html:not(.js) body:has(#publications:target) .section-nav a[href="#publications"]::before,
+html:not(.js) body:has(#software:target) .section-nav a[href="#software"]::before,
+html:not(.js) body:has(#teaching:target) .section-nav a[href="#teaching"]::before {
+  background: var(--accent);
+  opacity: 1;
+}
+
 /* Wide screens have empty gutters, so the same nav becomes a fixed rail beside
    the column instead of a row above it. 32rem = half the 42rem measure plus the
    rail's own width and gap, so it never collides with the text. */
@@ -327,23 +357,6 @@ h1 {
     margin-bottom: var(--s1);
   }
 
-  /* Marks the section jumped to; no scroll tracking, so it reflects the last
-     link followed rather than the current scroll position. */
-  body:has(#research:target) .section-nav a[href="#research"],
-  body:has(#publications:target) .section-nav a[href="#publications"],
-  body:has(#software:target) .section-nav a[href="#software"],
-  body:has(#teaching:target) .section-nav a[href="#teaching"] {
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  body:has(#research:target) .section-nav a[href="#research"]::before,
-  body:has(#publications:target) .section-nav a[href="#publications"]::before,
-  body:has(#software:target) .section-nav a[href="#software"]::before,
-  body:has(#teaching:target) .section-nav a[href="#teaching"]::before {
-    background: var(--accent);
-    opacity: 1;
-  }
 }
 
 /* --------------------------------------------------------------------------

@@ -327,6 +327,60 @@
   <p>© 2026 Wenlai Han · <a href="mailto:hanw@mit.edu">hanw@mit.edu</a> · Cambridge, Massachusetts</p>
 </footer>
 
+<script>
+// Lights the nav link for the section currently under the reading band.
+// CSS alone cannot do this: with scroll timelines every section in view
+// matches at once, so several links light together. Without this script the
+// stylesheet still highlights whichever link was last clicked.
+(() => {
+  const entries = [];
+  for (const a of document.querySelectorAll('.section-nav a[href^="#"]')) {
+    const section = document.querySelector(a.getAttribute('href'));
+    if (section) entries.push({ section, link: a });
+  }
+  if (!entries.length) return;
+
+  document.documentElement.classList.add('js');
+
+  const update = () => {
+    // The last section to have crossed a line a third of the way down is the
+    // one being read. The final section can never reach that line on its own,
+    // so hitting the bottom of the page selects it directly.
+    const line = window.innerHeight / 3;
+    const atBottom =
+      window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2;
+
+    let current = null;
+    if (atBottom) {
+      current = entries[entries.length - 1];
+    } else {
+      for (const entry of entries) {
+        if (entry.section.getBoundingClientRect().top <= line) current = entry;
+      }
+    }
+
+    for (const entry of entries) {
+      if (entry === current) entry.link.setAttribute('aria-current', 'location');
+      else entry.link.removeAttribute('aria-current');
+    }
+  };
+
+  let queued = false;
+  const schedule = () => {
+    if (queued) return;
+    queued = true;
+    requestAnimationFrame(() => {
+      queued = false;
+      update();
+    });
+  };
+
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', schedule);
+  update();
+})();
+</script>
+
 <a class="to-top" href="#top" aria-label="Back to top">
   <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false">
     <path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2"
